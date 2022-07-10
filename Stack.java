@@ -21,8 +21,12 @@ public class Stack {
 
     public void push(int val){
         if(isFull()){
-            System.out.println("stack is full!");
-            return;
+            capacity *= 2;
+            int[] tmp = stack;
+            stack = new int[capacity];
+            for(int i = 0; i <= top; i++){
+                stack[i] = tmp[i];
+            }
         }
         ++top;
         stack[top] = val;
@@ -44,11 +48,12 @@ public class Stack {
     }
 
     public void printStack(){
-        System.out.println("ele in stack:");
-        for(int i = top; i >=0; --i){
-            System.out.println("|" + stack[i] + "|");
+        System.out.print("[");
+        for(int i = 0; i <= top; ++i){
+            System.out.print(stack[i] + ",");
         }
-        System.out.println("===");
+        System.out.print("\b]");
+        System.out.println();
     }
 
     public static void main(String[] args){
@@ -56,9 +61,11 @@ public class Stack {
         s.push(2);
         s.push(4);
         s.push(5);
+        s.push(6);
+        s.push(7);
+        s.push(8);
+        s.push(9);
         s.pop();
-        System.out.println(s.peek());
-        System.out.println(s.size());
         s.printStack();
     }
 }
