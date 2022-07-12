@@ -1,1 +1,1 @@
-# Data Struct and Algorithm code
+# Data Structure and Algorithm code
